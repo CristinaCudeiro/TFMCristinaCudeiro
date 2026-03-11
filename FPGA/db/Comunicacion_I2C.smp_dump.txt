@@ -1,0 +1,9 @@
+
+State Machine - |Comunicacion_I2C|state
+Name state.ACK_DATA state.TRANSMIT_DATA state.RECEIVE_DATA state.ACK_ADDRESS state.ADDRESS state.IDLE 
+state.IDLE 0 0 0 0 0 0 
+state.ADDRESS 0 0 0 0 1 1 
+state.ACK_ADDRESS 0 0 0 1 0 1 
+state.RECEIVE_DATA 0 0 1 0 0 1 
+state.TRANSMIT_DATA 0 1 0 0 0 1 
+state.ACK_DATA 1 0 0 0 0 1 

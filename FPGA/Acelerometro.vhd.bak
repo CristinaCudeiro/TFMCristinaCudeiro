@@ -1,0 +1,96 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity accelerometer_emulator is
+    port(
+
+        clk   : in std_logic;
+        reset : in std_logic;
+
+        scl : in std_logic;
+        sda : inout std_logic
+
+    );
+end accelerometer_emulator;
+
+architecture Behavioral of accelerometer_emulator is
+
+signal data_from_i2c : std_logic_vector(7 downto 0);
+signal data_to_i2c   : std_logic_vector(7 downto 0);
+
+signal data_valid : std_logic;
+signal read_req   : std_logic;
+
+signal reg_addr : std_logic_vector(7 downto 0);
+
+type reg_array is array (0 to 3) of std_logic_vector(7 downto 0);
+
+signal registers : reg_array := (
+    x"AB",  -- ID
+    x"10",  -- ACC_X
+    x"20",  -- ACC_Y
+    x"30"   -- ACC_Z
+);
+
+begin
+
+i2c_inst : entity work.i2c_slave
+generic map(
+    SLAVE_ADDR => "0011101"
+)
+port map(
+
+    clk => clk,
+    reset => reset,
+
+    scl => scl,
+    sda => sda,
+
+    data_in => data_to_i2c,
+    data_out => data_from_i2c,
+
+    data_valid => data_valid,
+    read_req => read_req
+);
+
+-- lógica de registros
+
+process(clk)
+
+begin
+
+if rising_edge(clk) then
+
+    if data_valid = '1' then
+        reg_addr <= data_from_i2c;
+    end if;
+
+    if read_req = '1' then
+
+        case reg_addr is
+
+            when x"00" =>
+                data_to_i2c <= registers(0);
+
+            when x"01" =>
+                data_to_i2c <= registers(1);
+
+            when x"02" =>
+                data_to_i2c <= registers(2);
+
+            when x"03" =>
+                data_to_i2c <= registers(3);
+
+            when others =>
+                data_to_i2c <= x"00";
+
+        end case;
+
+    end if;
+
+end if;
+
+end process;
+
+end Behavioral;
