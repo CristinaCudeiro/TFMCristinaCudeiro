@@ -1,4 +1,5 @@
 |Comunicacion_I2C
+clk => registrotipod:Reg_SCL_1.clk
 clk => data_out[0]~reg0.CLK
 clk => data_out[1]~reg0.CLK
 clk => data_out[2]~reg0.CLK
@@ -7,6 +8,7 @@ clk => data_out[4]~reg0.CLK
 clk => data_out[5]~reg0.CLK
 clk => data_out[6]~reg0.CLK
 clk => data_out[7]~reg0.CLK
+clk => rw_bit.CLK
 clk => shift_reg[0].CLK
 clk => shift_reg[1].CLK
 clk => shift_reg[2].CLK
@@ -21,10 +23,11 @@ clk => bit_count[0].CLK
 clk => bit_count[1].CLK
 clk => bit_count[2].CLK
 clk => sda_out.CLK
-clk => scl_prev.CLK
-clk => sda_prev.CLK
-clk => stop_detected.CLK
-clk => start_detected.CLK
+clk => registrotipod:Reg_SCL_2.clk
+clk => registrotipod:Reg_SCL_3.clk
+clk => registrotipod:Reg_SDA_1.clk
+clk => registrotipod:Reg_SDA_2.clk
+clk => registrotipod:Reg_SDA_3.clk
 clk => state~7.DATAIN
 reset => read_req~reg0.ACLR
 reset => data_valid~reg0.ACLR
@@ -42,6 +45,7 @@ reset => shift_reg[3].ENA
 reset => shift_reg[2].ENA
 reset => shift_reg[1].ENA
 reset => shift_reg[0].ENA
+reset => rw_bit.ENA
 reset => data_out[7]~reg0.ENA
 reset => data_out[6]~reg0.ENA
 reset => data_out[5]~reg0.ENA
@@ -49,21 +53,17 @@ reset => data_out[4]~reg0.ENA
 reset => data_out[3]~reg0.ENA
 reset => data_out[2]~reg0.ENA
 reset => data_out[1]~reg0.ENA
-bit_conf => ~NO_FANOUT~
-scl => start_detected.OUTPUTSELECT
-scl => stop_detected.OUTPUTSELECT
-scl => process_1.IN1
-scl => scl_prev.DATAIN
-scl => process_1.IN1
+bit_conf => Equal0.IN13
+scl => registrotipod:Reg_SCL_1.D
 sda <> sda
-data_in[0] => ~NO_FANOUT~
-data_in[1] => ~NO_FANOUT~
-data_in[2] => ~NO_FANOUT~
-data_in[3] => ~NO_FANOUT~
-data_in[4] => ~NO_FANOUT~
-data_in[5] => ~NO_FANOUT~
-data_in[6] => ~NO_FANOUT~
-data_in[7] => ~NO_FANOUT~
+data_in[0] => shift_reg.DATAA
+data_in[1] => shift_reg.DATAA
+data_in[2] => shift_reg.DATAA
+data_in[3] => shift_reg.DATAA
+data_in[4] => shift_reg.DATAA
+data_in[5] => shift_reg.DATAA
+data_in[6] => shift_reg.DATAA
+data_in[7] => shift_reg.DATAA
 data_out[0] <= data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_out[1] <= data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_out[2] <= data_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -74,5 +74,41 @@ data_out[6] <= data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_out[7] <= data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_valid <= data_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 read_req <= read_req~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Comunicacion_I2C|RegistroTipoD:Reg_SCL_1
+clk => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Comunicacion_I2C|RegistroTipoD:Reg_SCL_2
+clk => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Comunicacion_I2C|RegistroTipoD:Reg_SCL_3
+clk => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Comunicacion_I2C|RegistroTipoD:Reg_SDA_1
+clk => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Comunicacion_I2C|RegistroTipoD:Reg_SDA_2
+clk => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Comunicacion_I2C|RegistroTipoD:Reg_SDA_3
+clk => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

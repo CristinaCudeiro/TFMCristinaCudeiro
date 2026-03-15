@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Mar 11 16:00:43 2026
+Fitter Status : Successful - Sun Mar 15 15:03:41 2026
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Comunicacion_I2C
 Top-level Entity Name : Comunicacion_I2C
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 1 / 49,760 ( < 1 % )
-    Total combinational functions : 1 / 49,760 ( < 1 % )
-    Dedicated logic registers : 0 / 49,760 ( 0 % )
-Total registers : 0
+Total logic elements : 100 / 49,760 ( < 1 % )
+    Total combinational functions : 90 / 49,760 ( < 1 % )
+    Dedicated logic registers : 35 / 49,760 ( < 1 % )
+Total registers : 35
 Total pins : 23 / 360 ( 6 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

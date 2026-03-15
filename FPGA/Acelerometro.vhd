@@ -28,12 +28,12 @@ signal reg_addr : std_logic_vector(7 downto 0);
 type reg_array is array (0 to 5) of std_logic_vector(7 downto 0);
 
 signal registers : reg_array := (
-    x"34", -- X_L
-    x"12", -- X_H
-    x"78", -- Y_L
-    x"56", -- Y_H
-    x"BC", -- Z_L
-    x"9A"  -- Z_H
+    x"12", -- GYRO_XOUT_H 
+    x"34", -- GYRO_XOUT_L 
+    x"56", -- GYRO_YOUT_H 
+    x"78", -- GYRO_YOUT_L 
+    x"9A", -- GYRO_ZOUT_H 
+    x"BC"  -- GYRO_ZOUT_L 
 );
 
 begin
@@ -78,20 +78,16 @@ begin
 			  case reg_addr is
 					
 					-- Envía el registro 
-					when x"28" =>  data_to_i2c <= registers(0);
+					when x"43" =>  data_to_i2c <= registers(0); -- GYRO_XOUT_H (Reg 67)
+               when x"44" =>  data_to_i2c <= registers(1); -- GYRO_XOUT_L (Reg 68)
 
-					when x"29" =>  data_to_i2c <= registers(1);
+               when x"45" =>  data_to_i2c <= registers(2); -- GYRO_YOUT_H (Reg 69)
+               when x"46" =>  data_to_i2c <= registers(3); -- GYRO_YOUT_L (Reg 70)
 
-					when x"2A" =>  data_to_i2c <= registers(2);
+               when x"47" =>  data_to_i2c <= registers(4); -- GYRO_ZOUT_H (Reg 71)
+               when x"48" =>  data_to_i2c <= registers(5); -- GYRO_ZOUT_L (Reg 72)
 
-					when x"2B" =>  data_to_i2c <= registers(3);
-
-					when x"2C" =>  data_to_i2c <= registers(4);
-
-					when x"2D" =>  data_to_i2c <= registers(5);
-
-					when others => data_to_i2c <= x"00";
-
+               when others => data_to_i2c <= x"00";
 			  end case;
 
 		 end if;
