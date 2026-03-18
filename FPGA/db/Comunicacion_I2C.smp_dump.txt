@@ -1,5 +1,5 @@
 
-State Machine - |Comunicacion_I2C|state
+State Machine - |Acelerometro|Comunicacion_I2C:i2c_inst|state
 Name state.ACK_DATA state.TRANSMIT_DATA state.RECEIVE_DATA state.ACK_ADDRESS state.ADDRESS state.IDLE 
 state.IDLE 0 0 0 0 0 0 
 state.ADDRESS 0 0 0 0 1 1 

@@ -61,39 +61,28 @@ begin
 
 	-- lógica de registros
 
-	process(clk)
+	-- Proceso 1: Guarda la dirección que el maestro quiere leer
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if data_valid = '1' then
+                reg_addr <= data_from_i2c;
+            end if;
+        end if;
+    end process;
 
-	begin
-
-	if rising_edge(clk) then
-		
-		if data_valid = '1' then
-			-- El byte que envia el maestro es el registro que se quiere leer después
-			reg_addr <= data_from_i2c;
-		end if;
-
-		-- El maestro solicita acceder a un registro
-		if read_req = '1' then
-
-			  case reg_addr is
-					
-					-- Envía el registro 
-					when x"43" =>  data_to_i2c <= registers(0); -- GYRO_XOUT_H (Reg 67)
-               when x"44" =>  data_to_i2c <= registers(1); -- GYRO_XOUT_L (Reg 68)
-
-               when x"45" =>  data_to_i2c <= registers(2); -- GYRO_YOUT_H (Reg 69)
-               when x"46" =>  data_to_i2c <= registers(3); -- GYRO_YOUT_L (Reg 70)
-
-               when x"47" =>  data_to_i2c <= registers(4); -- GYRO_ZOUT_H (Reg 71)
-               when x"48" =>  data_to_i2c <= registers(5); -- GYRO_ZOUT_L (Reg 72)
-
-               when others => data_to_i2c <= x"00";
-			  end case;
-
-		 end if;
-
-	end if;
-
-	end process;
+    -- Proceso 2: Concurrente (sin reloj). 
+    process(reg_addr, registers)
+    begin
+        case reg_addr is
+            when x"28" => data_to_i2c <= registers(0);
+            when x"29" => data_to_i2c <= registers(1);
+            when x"2A" => data_to_i2c <= registers(2);
+            when x"2B" => data_to_i2c <= registers(3);
+            when x"2C" => data_to_i2c <= registers(4);
+            when x"2D" => data_to_i2c <= registers(5);
+            when others => data_to_i2c <= x"00";
+        end case;
+    end process;
 
 end arch;

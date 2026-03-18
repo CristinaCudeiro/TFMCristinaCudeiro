@@ -1,4 +1,19 @@
-|Comunicacion_I2C
+|Acelerometro
+clk => comunicacion_i2c:i2c_inst.clk
+clk => reg_addr[0].CLK
+clk => reg_addr[1].CLK
+clk => reg_addr[2].CLK
+clk => reg_addr[3].CLK
+clk => reg_addr[4].CLK
+clk => reg_addr[5].CLK
+clk => reg_addr[6].CLK
+clk => reg_addr[7].CLK
+reset => comunicacion_i2c:i2c_inst.reset
+scl => comunicacion_i2c:i2c_inst.scl
+sda <> comunicacion_i2c:i2c_inst.sda
+
+
+|Acelerometro|Comunicacion_I2C:i2c_inst
 clk => registrotipod:Reg_SCL_1.clk
 clk => data_out[0]~reg0.CLK
 clk => data_out[1]~reg0.CLK
@@ -22,6 +37,7 @@ clk => data_valid~reg0.CLK
 clk => bit_count[0].CLK
 clk => bit_count[1].CLK
 clk => bit_count[2].CLK
+clk => bit_count[3].CLK
 clk => sda_out.CLK
 clk => registrotipod:Reg_SCL_2.clk
 clk => registrotipod:Reg_SCL_3.clk
@@ -34,6 +50,7 @@ reset => data_valid~reg0.ACLR
 reset => bit_count[0].PRESET
 reset => bit_count[1].PRESET
 reset => bit_count[2].PRESET
+reset => bit_count[3].ACLR
 reset => sda_out.PRESET
 reset => state~9.DATAIN
 reset => data_out[0]~reg0.ENA
@@ -63,6 +80,7 @@ data_in[3] => shift_reg.DATAA
 data_in[4] => shift_reg.DATAA
 data_in[5] => shift_reg.DATAA
 data_in[6] => shift_reg.DATAA
+data_in[7] => sda_out.DATAA
 data_in[7] => shift_reg.DATAA
 data_out[0] <= data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_out[1] <= data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -76,37 +94,37 @@ data_valid <= data_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 read_req <= read_req~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Comunicacion_I2C|RegistroTipoD:Reg_SCL_1
+|Acelerometro|Comunicacion_I2C:i2c_inst|RegistroTipoD:Reg_SCL_1
 clk => Q~reg0.CLK
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Comunicacion_I2C|RegistroTipoD:Reg_SCL_2
+|Acelerometro|Comunicacion_I2C:i2c_inst|RegistroTipoD:Reg_SCL_2
 clk => Q~reg0.CLK
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Comunicacion_I2C|RegistroTipoD:Reg_SCL_3
+|Acelerometro|Comunicacion_I2C:i2c_inst|RegistroTipoD:Reg_SCL_3
 clk => Q~reg0.CLK
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Comunicacion_I2C|RegistroTipoD:Reg_SDA_1
+|Acelerometro|Comunicacion_I2C:i2c_inst|RegistroTipoD:Reg_SDA_1
 clk => Q~reg0.CLK
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Comunicacion_I2C|RegistroTipoD:Reg_SDA_2
+|Acelerometro|Comunicacion_I2C:i2c_inst|RegistroTipoD:Reg_SDA_2
 clk => Q~reg0.CLK
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Comunicacion_I2C|RegistroTipoD:Reg_SDA_3
+|Acelerometro|Comunicacion_I2C:i2c_inst|RegistroTipoD:Reg_SDA_3
 clk => Q~reg0.CLK
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE

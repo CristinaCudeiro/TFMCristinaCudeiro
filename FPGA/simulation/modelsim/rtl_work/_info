@@ -1,0 +1,177 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Usuario/Desktop/TFM/FPGA/simulation/modelsim
+Eacelerometro
+Z1 w1773864653
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/Usuario/Desktop/TFM/FPGA/Acelerometro.vhd
+Z6 FC:/Users/Usuario/Desktop/TFM/FPGA/Acelerometro.vhd
+l0
+L5
+Vk9>6C_^W[lT33087d[5zf1
+!s100 dRce[LWYnVckc:n:CR=AE3
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1773867036
+!i10b 1
+Z9 !s108 1773867035.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Usuario/Desktop/TFM/FPGA/Acelerometro.vhd|
+Z11 !s107 C:/Users/Usuario/Desktop/TFM/FPGA/Acelerometro.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aarch
+Z14 DEx4 work 16 comunicacion_i2c 0 22 Em@_B0EfXGD:OozHYhYaf2
+R2
+R3
+R4
+Z15 DEx4 work 12 acelerometro 0 22 k9>6C_^W[lT33087d[5zf1
+l39
+L17
+VbBUmGMzf3d2k=N8Shi15f2
+!s100 ^bd]I=n3Ac8OolAC:LCJN3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ecomunicacion_i2c
+Z16 w1773866924
+R2
+R3
+R4
+R0
+Z17 8C:/Users/Usuario/Desktop/TFM/FPGA/Comunicacion_I2C.vhd
+Z18 FC:/Users/Usuario/Desktop/TFM/FPGA/Comunicacion_I2C.vhd
+l0
+L5
+VEm@_B0EfXGD:OozHYhYaf2
+!s100 j5RfLGdWQDPBneW[MV3<I0
+R7
+31
+Z19 !s110 1773867035
+!i10b 1
+R9
+Z20 !s90 -reportprogress|300|-93|-work|work|C:/Users/Usuario/Desktop/TFM/FPGA/Comunicacion_I2C.vhd|
+Z21 !s107 C:/Users/Usuario/Desktop/TFM/FPGA/Comunicacion_I2C.vhd|
+!i113 1
+R12
+R13
+Aarch
+Z22 DEx4 work 13 registrotipod 0 22 PJUX6ffIU;A]W@nZIm^kK0
+R2
+R3
+R4
+R14
+l60
+L25
+V1MB5OoN2IfF45WNoZ_Hom3
+!s100 i_@YCPbQz=DX2AlV]NZ6G0
+R7
+31
+R19
+!i10b 1
+R9
+R20
+R21
+!i113 1
+R12
+R13
+Eregistrotipod
+Z23 w1773582673
+R2
+R3
+R4
+R0
+Z24 8C:/Users/Usuario/Desktop/TFM/FPGA/RegistroTipoD.vhd
+Z25 FC:/Users/Usuario/Desktop/TFM/FPGA/RegistroTipoD.vhd
+l0
+L5
+VPJUX6ffIU;A]W@nZIm^kK0
+!s100 YFc7a87jezEdLdZJ86z`C2
+R7
+31
+R19
+!i10b 1
+R9
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/Usuario/Desktop/TFM/FPGA/RegistroTipoD.vhd|
+Z27 !s107 C:/Users/Usuario/Desktop/TFM/FPGA/RegistroTipoD.vhd|
+!i113 1
+R12
+R13
+Aarq
+R2
+R3
+R4
+R22
+l17
+L15
+VGK>If[ofi=Z9jU1=MA?7;0
+!s100 5CS2[N>m<1n:VlG;W><@51
+R7
+31
+R19
+!i10b 1
+R9
+R26
+R27
+!i113 1
+R12
+R13
+Esimulacion
+Z28 w1773678202
+R2
+R3
+R4
+R0
+Z29 8C:/Users/Usuario/Desktop/TFM/FPGA/simulacion.vhd
+Z30 FC:/Users/Usuario/Desktop/TFM/FPGA/simulacion.vhd
+l0
+L6
+VH_;chT2mLO`9UzXNW7c<n3
+!s100 >daCU;mD8olbhejZG6I:B1
+R7
+31
+R8
+!i10b 1
+Z31 !s108 1773867036.000000
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/Usuario/Desktop/TFM/FPGA/simulacion.vhd|
+Z33 !s107 C:/Users/Usuario/Desktop/TFM/FPGA/simulacion.vhd|
+!i113 1
+R12
+R13
+Asim_arch
+R15
+R2
+R3
+R4
+DEx4 work 10 simulacion 0 22 H_;chT2mLO`9UzXNW7c<n3
+l21
+L9
+VlHRTPai9Z_99IVM>iTgOG2
+!s100 ^FI7HJKe]7JCBOLZzhlOm1
+R7
+31
+R8
+!i10b 1
+R31
+R32
+R33
+!i113 1
+R12
+R13
